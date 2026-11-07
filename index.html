@@ -67,6 +67,15 @@ th{font-size:.8rem;color:var(--mute);font-weight:600;background:var(--chip)}
 .note.warn{border-left-color:var(--accent)}
 .note ul{margin:4px 0;padding-left:1.1em}
 .src{font-size:.82rem;color:var(--mute)} .src li{margin:3px 0;word-break:break-all}
+.photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin:8px 0 10px}
+.photos figure{margin:0}
+.photos img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px;display:block;background:var(--chip)}
+.photos figcaption,.thumb figcaption{font-size:.72rem;color:var(--mute);margin-top:3px}
+.places li.pi{display:grid;grid-template-columns:92px 1fr;gap:10px;align-items:start}
+.thumb{margin:0}
+.thumb img{width:92px;height:72px;object-fit:cover;border-radius:6px;display:block;background:var(--chip)}
+a.dp{font-size:.78rem;color:var(--food);text-decoration:none;white-space:nowrap;margin-left:6px}
+.places.cafe a.dp{color:var(--cafe)}
 footer{margin-top:40px;font-size:.8rem;color:var(--mute)}
 </style>
 </head>
@@ -113,6 +122,7 @@ footer{margin-top:40px;font-size:.8rem;color:var(--mute)}
 <section class="spot" id="s1">
 <header><div class="num">1</div><h3>798 예술구 <span class="zh">798艺术区</span></h3></header>
 <p class="arch">1950년대 동독 기술진이 설계한 718 연합공장(톱날형 북측 채광 지붕) → 2000년대 예술구. UCCA는 2019년 OMA가 리노베이션.</p>
+<div class="photos"><figure><img src="img/s798b.jpg" alt="798 공장동 톱날지붕 아치 셸 내부" loading="lazy"><figcaption>798 공장동 톱날지붕 아치 셸 내부 · 📷 Leeluv</figcaption></figure><figure><img src="img/ucca.jpg" alt="UCCA 입구 (OMA 리노베이션)" loading="lazy"><figcaption>UCCA 입구 (OMA 리노베이션) · 📷 Simonfrank91</figcaption></figure><figure><img src="img/s798.jpg" alt="798 예술구 정문" loading="lazy"><figcaption>798 예술구 정문 · 📷 Cory M. Grenier</figcaption></figure></div>
 <ul class="look">
 <li>톱날지붕의 아치형 콘크리트 셸과 북측 고창. 지붕 단면을 내부에서 확인하세요.</li>
 <li>UCCA: 기존 공장동 안에 새 로비와 출입부를 어떻게 끼워 넣었는지</li>
@@ -120,23 +130,24 @@ footer{margin-top:40px;font-size:.8rem;color:var(--mute)}
 </ul>
 <p class="sub food">밥집 (점심)</p>
 <ul class="places">
-<li><span class="n">便宜坊 798점</span><span class="rec">단체 추천</span><span class="zh">Pianyifang · 1인 약 ¥120</span><a class="amap" href="https://uri.amap.com/search?keyword=%E4%BE%BF%E5%AE%9C%E5%9D%8A%20798&city=110000">고덕지도 ↗</a><span class="why">화덕(焖炉) 베이징덕 노포의 798 지점. 원탁이 있어 7명이 앉기 편합니다.</span></li>
-<li><span class="n">胶东刘妈妈肉汁饺子</span><span class="zh">1인 약 ¥50</span><a class="amap" href="https://uri.amap.com/search?keyword=%E8%83%B6%E4%B8%9C%E5%88%98%E5%A6%88%E5%A6%88%E8%82%89%E6%B1%81%E9%A5%BA%E5%AD%90%20798&city=110000">고덕지도 ↗</a><span class="why">798 골목 안 수제 해물 만두집(삼치·가리비). 가볍고 싸게 먹을 때 좋습니다.</span></li>
-<li><span class="n">沈记菜馆</span><span class="zh">Shen Ji · 회양요리</span><a class="amap" href="https://uri.amap.com/search?keyword=%E6%B2%88%E8%AE%B0%E8%8F%9C%E9%A6%86%20798&city=110000">고덕지도 ↗</a><span class="why">798에서 가장 오래된 가족식당으로 소개되는 곳이고, 홍샤오러우가 대표 메뉴입니다. 예약을 권장합니다.</span></li>
-<li><span class="n">孟林厨房</span><span class="zh">1인 약 ¥70</span><a class="amap" href="https://uri.amap.com/search?keyword=%E5%AD%9F%E6%9E%97%E5%8E%A8%E6%88%BF&city=110000">고덕지도 ↗</a><span class="why">식물로 둘러싸인 작은 가게, 쓰촨·베이징 가정식</span></li>
+<li class="pi"><figure class="thumb"><img src="img/duck_slice.jpg" alt="메뉴 예시: 베이징덕" loading="lazy"><figcaption>메뉴 예시: 베이징덕</figcaption></figure><div><span class="n">便宜坊 798점</span><span class="rec">단체 추천</span><span class="zh">Pianyifang · 1인 약 ¥120</span><a class="amap" href="https://uri.amap.com/search?keyword=%E4%BE%BF%E5%AE%9C%E5%9D%8A%20798&city=110000">고덕지도 ↗</a><a class="dp" href="https://www.dianping.com/search/keyword/2/0_%E4%BE%BF%E5%AE%9C%E5%9D%8A%20798" target="_blank" rel="noopener">가게 사진 ↗</a><span class="why">화덕(焖炉) 베이징덕 노포의 798 지점. 원탁이 있어 7명이 앉기 편합니다.</span></div></li>
+<li class="pi"><figure class="thumb"><img src="img/jiaozi.jpg" alt="메뉴 예시: 물만두" loading="lazy"><figcaption>메뉴 예시: 물만두</figcaption></figure><div><span class="n">胶东刘妈妈肉汁饺子</span><span class="zh">1인 약 ¥50</span><a class="amap" href="https://uri.amap.com/search?keyword=%E8%83%B6%E4%B8%9C%E5%88%98%E5%A6%88%E5%A6%88%E8%82%89%E6%B1%81%E9%A5%BA%E5%AD%90%20798&city=110000">고덕지도 ↗</a><a class="dp" href="https://www.dianping.com/search/keyword/2/0_%E8%83%B6%E4%B8%9C%E5%88%98%E5%A6%88%E5%A6%88%E8%82%89%E6%B1%81%E9%A5%BA%E5%AD%90%20798" target="_blank" rel="noopener">가게 사진 ↗</a><span class="why">798 골목 안 수제 해물 만두집(삼치·가리비). 가볍고 싸게 먹을 때 좋습니다.</span></div></li>
+<li class="pi"><figure class="thumb"><img src="img/hongshao.jpg" alt="메뉴 예시: 홍샤오러우" loading="lazy"><figcaption>메뉴 예시: 홍샤오러우</figcaption></figure><div><span class="n">沈记菜馆</span><span class="zh">Shen Ji · 회양요리</span><a class="amap" href="https://uri.amap.com/search?keyword=%E6%B2%88%E8%AE%B0%E8%8F%9C%E9%A6%86%20798&city=110000">고덕지도 ↗</a><a class="dp" href="https://www.dianping.com/search/keyword/2/0_%E6%B2%88%E8%AE%B0%E8%8F%9C%E9%A6%86%20798" target="_blank" rel="noopener">가게 사진 ↗</a><span class="why">798에서 가장 오래된 가족식당으로 소개되는 곳이고, 홍샤오러우가 대표 메뉴입니다. 예약을 권장합니다.</span></div></li>
+<li><span class="n">孟林厨房</span><span class="zh">1인 약 ¥70</span><a class="amap" href="https://uri.amap.com/search?keyword=%E5%AD%9F%E6%9E%97%E5%8E%A8%E6%88%BF&city=110000">고덕지도 ↗</a><a class="dp" href="https://www.dianping.com/search/keyword/2/0_%E5%AD%9F%E6%9E%97%E5%8E%A8%E6%88%BF" target="_blank" rel="noopener">가게 사진 ↗</a><span class="why">식물로 둘러싸인 작은 가게, 쓰촨·베이징 가정식</span></li>
 </ul>
 <p class="sub cafe">카페</p>
 <ul class="places cafe">
-<li><span class="n">At Café</span><span class="rec">답사 추천</span><span class="zh">爱特咖啡</span><a class="amap" href="https://uri.amap.com/search?keyword=%E7%88%B1%E7%89%B9%E5%92%96%E5%95%A1%20798&city=110000">고덕지도 ↗</a><span class="why">2003년 문을 연 798 최초의 아트 카페. 옛 공장 식당 건물에 있습니다.</span></li>
-<li><span class="n">TIANROAST Coffee</span><span class="zh">星空间(Star Gallery) 맞은편</span><a class="amap" href="https://uri.amap.com/search?keyword=TIANROAST%20798&city=110000">고덕지도 ↗</a><span class="why">넓은 공간에 커피가 진하다는 평. 7명이 같이 앉기 좋습니다.</span></li>
-<li><span class="n">Such A Cafe</span><span class="zh">B27, 706北一街 · 10–19시</span><a class="amap" href="https://uri.amap.com/search?keyword=Such%20A%20Cafe%20798&city=110000">고덕지도 ↗</a><span class="why">The Beijinger가 "798 최고의 카페"로 꼽은 곳. 실내 볼풀이 있습니다.</span></li>
-<li><span class="n">扑扑 PUPU</span><span class="zh">디저트 · 1인 약 ¥60</span><a class="amap" href="https://uri.amap.com/search?keyword=%E6%89%91%E6%89%91%20798&city=110000">고덕지도 ↗</a><span class="why">레트로 빙수와 치즈케이크. 사진 찍기 좋은 곳입니다.</span></li>
+<li><span class="n">At Café</span><span class="rec">답사 추천</span><span class="zh">爱特咖啡</span><a class="amap" href="https://uri.amap.com/search?keyword=%E7%88%B1%E7%89%B9%E5%92%96%E5%95%A1%20798&city=110000">고덕지도 ↗</a><a class="dp" href="https://www.dianping.com/search/keyword/2/0_%E7%88%B1%E7%89%B9%E5%92%96%E5%95%A1%20798" target="_blank" rel="noopener">가게 사진 ↗</a><span class="why">2003년 문을 연 798 최초의 아트 카페. 옛 공장 식당 건물에 있습니다.</span></li>
+<li><span class="n">TIANROAST Coffee</span><span class="zh">星空间(Star Gallery) 맞은편</span><a class="amap" href="https://uri.amap.com/search?keyword=TIANROAST%20798&city=110000">고덕지도 ↗</a><a class="dp" href="https://www.dianping.com/search/keyword/2/0_TIANROAST%20798" target="_blank" rel="noopener">가게 사진 ↗</a><span class="why">넓은 공간에 커피가 진하다는 평. 7명이 같이 앉기 좋습니다.</span></li>
+<li><span class="n">Such A Cafe</span><span class="zh">B27, 706北一街 · 10–19시</span><a class="amap" href="https://uri.amap.com/search?keyword=Such%20A%20Cafe%20798&city=110000">고덕지도 ↗</a><a class="dp" href="https://www.dianping.com/search/keyword/2/0_Such%20A%20Cafe%20798" target="_blank" rel="noopener">가게 사진 ↗</a><span class="why">The Beijinger가 "798 최고의 카페"로 꼽은 곳. 실내 볼풀이 있습니다.</span></li>
+<li><span class="n">扑扑 PUPU</span><span class="zh">디저트 · 1인 약 ¥60</span><a class="amap" href="https://uri.amap.com/search?keyword=%E6%89%91%E6%89%91%20798&city=110000">고덕지도 ↗</a><a class="dp" href="https://www.dianping.com/search/keyword/2/0_%E6%89%91%E6%89%91%20798" target="_blank" rel="noopener">가게 사진 ↗</a><span class="why">레트로 빙수와 치즈케이크. 사진 찍기 좋은 곳입니다.</span></li>
 </ul>
 </section>
 
 <section class="spot" id="s2">
 <header><div class="num">2</div><h3>왕징 SOHO <span class="zh">望京SOHO</span></h3></header>
 <p class="arch">Zaha Hadid Architects, 2014. 높이 200m · 127m · 118m 타워 3개.</p>
+<div class="photos"><figure><img src="img/soho.jpg" alt="왕징 SOHO" loading="lazy"><figcaption>왕징 SOHO · 📷 CNHowey</figcaption></figure></div>
 <ul class="look">
 <li>세 매스가 어느 방향에서 봐도 서로 겹쳐 보이도록 배치한 방식. 공원을 한 바퀴 돌며 확인하세요.</li>
 <li>알루미늄 패널 띠가 곡면을 따라 이어지는 커튼월 디테일</li>
@@ -144,15 +155,16 @@ footer{margin-top:40px;font-size:.8rem;color:var(--mute)}
 </ul>
 <p class="sub cafe">카페 · 간식</p>
 <ul class="places cafe">
-<li><span class="n">CUP ONE (麒麟社)</span><span class="rec">뷰 추천</span><span class="zh">1인 약 ¥35</span><a class="amap" href="https://uri.amap.com/search?keyword=CUP%20ONE%20%E9%BA%92%E9%BA%9F%E7%A4%BE&city=110000">고덕지도 ↗</a><span class="why">왕징 SOHO 맞은편 麒麟社 2–3층. 통창으로 SOHO가 정면에 보이고, 테이블 간격이 넓습니다.</span></li>
-<li><span class="n">IF 野生面包</span><span class="zh">望京SOHO T1</span><a class="amap" href="https://uri.amap.com/search?keyword=%E9%87%8E%E7%94%9F%E9%9D%A2%E5%8C%85%20%E6%9C%9B%E4%BA%ACSOHO&city=110000">고덕지도 ↗</a><span class="why">베이글·스콘 등 개당 ¥12 안팎. 이동 중 간식용</span></li>
-<li><span class="n">卡瓦小镇咖啡馆 望京店</span><span class="zh">1인 약 ¥49</span><a class="amap" href="https://uri.amap.com/search?keyword=%E5%8D%A1%E7%93%A6%E5%B0%8F%E9%95%87%E5%92%96%E5%95%A1%E9%A6%86%20%E6%9C%9B%E4%BA%AC&city=110000">고덕지도 ↗</a><span class="why">望京东园, SOHO 근처. 독일식 간식과 애프터눈티</span></li>
+<li><span class="n">CUP ONE (麒麟社)</span><span class="rec">뷰 추천</span><span class="zh">1인 약 ¥35</span><a class="amap" href="https://uri.amap.com/search?keyword=CUP%20ONE%20%E9%BA%92%E9%BA%9F%E7%A4%BE&city=110000">고덕지도 ↗</a><a class="dp" href="https://www.dianping.com/search/keyword/2/0_CUP%20ONE%20%E9%BA%92%E9%BA%9F%E7%A4%BE" target="_blank" rel="noopener">가게 사진 ↗</a><span class="why">왕징 SOHO 맞은편 麒麟社 2–3층. 통창으로 SOHO가 정면에 보이고, 테이블 간격이 넓습니다.</span></li>
+<li><span class="n">IF 野生面包</span><span class="zh">望京SOHO T1</span><a class="amap" href="https://uri.amap.com/search?keyword=%E9%87%8E%E7%94%9F%E9%9D%A2%E5%8C%85%20%E6%9C%9B%E4%BA%ACSOHO&city=110000">고덕지도 ↗</a><a class="dp" href="https://www.dianping.com/search/keyword/2/0_%E9%87%8E%E7%94%9F%E9%9D%A2%E5%8C%85%20%E6%9C%9B%E4%BA%ACSOHO" target="_blank" rel="noopener">가게 사진 ↗</a><span class="why">베이글·스콘 등 개당 ¥12 안팎. 이동 중 간식용</span></li>
+<li><span class="n">卡瓦小镇咖啡馆 望京店</span><span class="zh">1인 약 ¥49</span><a class="amap" href="https://uri.amap.com/search?keyword=%E5%8D%A1%E7%93%A6%E5%B0%8F%E9%95%87%E5%92%96%E5%95%A1%E9%A6%86%20%E6%9C%9B%E4%BA%AC&city=110000">고덕지도 ↗</a><a class="dp" href="https://www.dianping.com/search/keyword/2/0_%E5%8D%A1%E7%93%A6%E5%B0%8F%E9%95%87%E5%92%96%E5%95%A1%E9%A6%86%20%E6%9C%9B%E4%BA%AC" target="_blank" rel="noopener">가게 사진 ↗</a><span class="why">望京东园, SOHO 근처. 독일식 간식과 애프터눈티</span></li>
 </ul>
 </section>
 
 <section class="spot" id="s3">
 <header><div class="num">3</div><h3>국가속도스케이팅경기장 · 빙쓰다이 <span class="zh">国家速滑馆 · 冰丝带</span></h3></header>
 <p class="arch">Populous + BIAD, 2021 (2022 동계올림픽). 지붕은 케이블넷 구조.</p>
+<div class="photos"><figure><img src="img/ice.jpg" alt="빙쓰다이 (올림픽 타워에서 내려다본 모습)" loading="lazy"><figcaption>빙쓰다이 (올림픽 타워에서 내려다본 모습) · 📷 Arne Müseler</figcaption></figure></div>
 <ul class="look">
 <li>유리 커튼월 밖을 감는 22개의 '리본' 튜브. 스케이트 날이 지나간 자국을 표현했고, 해가 지면 LED가 켜집니다.</li>
 <li>안장형 쌍곡 케이블넷 지붕: 큰 스팬을 가볍게 덮는 방식</li>
@@ -163,6 +175,7 @@ footer{margin-top:40px;font-size:.8rem;color:var(--mute)}
 <section class="spot" id="s4">
 <header><div class="num">4</div><h3>디지털 베이징 <span class="zh">数字北京大厦</span></h3></header>
 <p class="arch">Studio Pei-Zhu(朱锫), 2008. 올림픽 통신·데이터 센터</p>
+<div class="photos"><figure><img src="img/digital.jpg" alt="디지털 베이징" loading="lazy"><figcaption>디지털 베이징 · 📷 そらみみ</figcaption></figure></div>
 <ul class="look">
 <li>얇은 판상 매스를 여러 장 나란히 세운 구성. 집적회로를 은유합니다.</li>
 <li>입면의 LED 선과 회로 패턴. 해 진 직후에 보면 좋습니다.</li>
@@ -173,6 +186,7 @@ footer{margin-top:40px;font-size:.8rem;color:var(--mute)}
 <section class="spot" id="s5">
 <header><div class="num">5</div><h3>국가수영센터 · 수이리팡 <span class="zh">国家游泳中心 · 水立方</span></h3></header>
 <p class="arch">PTW Architects + CSCEC + Arup, 2008. 2022년에는 컬링장 '빙리팡(冰立方)'으로 전환</p>
+<div class="photos"><figure><img src="img/cube.jpg" alt="수이리팡 야경" loading="lazy"><figcaption>수이리팡 야경 · 📷 allen watkin from London, UK</figcaption></figure></div>
 <ul class="look">
 <li>비눗방울 형상(Weaire–Phelan 구조)의 입체 강골조와 ETFE 쿠션 외피</li>
 <li>밤에 외피 전체가 색을 바꾸는 조명. 냐오차오의 붉은 조명과 대비됩니다.</li>
@@ -183,6 +197,7 @@ footer{margin-top:40px;font-size:.8rem;color:var(--mute)}
 <section class="spot" id="s6">
 <header><div class="num">6</div><h3>국가체육장 · 냐오차오 <span class="zh">国家体育场 · 鸟巢</span></h3></header>
 <p class="arch">Herzog &amp; de Meuron (+ 아이웨이웨이, Arup, CAG), 2008</p>
+<div class="photos"><figure><img src="img/nest.jpg" alt="냐오차오 야경 (2016년 11월)" loading="lazy"><figcaption>냐오차오 야경 (2016년 11월) · 📷 Another Believer</figcaption></figure></div>
 <ul class="look">
 <li>구조와 외피가 하나로 된 강재 그물: 주구조 24개 트러스 기둥과 2차 부재의 위계</li>
 <li>개폐 지붕 계획을 취소하고 남은 큰 개구부. 원안과 실시안을 비교해 보세요.</li>
@@ -190,15 +205,17 @@ footer{margin-top:40px;font-size:.8rem;color:var(--mute)}
 </ul>
 <p class="sub food">밥집 (저녁 · 14명)</p>
 <ul class="places">
-<li><span class="n">小吊梨汤 鸟巢店</span><span class="rec">1순위</span><span class="zh">베이징요리·오리구이 · 1인 약 ¥90</span><a class="amap" href="https://uri.amap.com/search?keyword=%E5%B0%8F%E5%90%8A%E6%A2%A8%E6%B1%A4%20%E9%B8%9F%E5%B7%A2&city=110000">고덕지도 ↗</a><span class="why">냐오차오에서 약 760m. 이름의 유래인 배 수프(梨汤)와 베이징덕. 트립닷컴 평점 4.8. 14명이면 큰 원탁 2개나 방(包间)을 예약하세요.</span></li>
-<li><span class="n">庭院家人 鸟巢店</span><span class="zh">회양요리 + 오리구이</span><a class="amap" href="https://uri.amap.com/search?keyword=%E5%BA%AD%E9%99%A2%E5%AE%B6%E4%BA%BA%20%E9%B8%9F%E5%B7%A2&city=110000">고덕지도 ↗</a><span class="why">"수이리팡과 냐오차오를 보고 찾아갔는데 맛있었다"는 방문 후기가 있습니다. 1순위를 예약하지 못했을 때의 대안</span></li>
-<li><span class="n">全聚德 奥运村店</span><span class="zh">약 1.5km · 택시 5분</span><a class="amap" href="https://uri.amap.com/search?keyword=%E5%85%A8%E8%81%9A%E5%BE%B7%20%E5%A5%A5%E8%BF%90%E6%9D%91&city=110000">고덕지도 ↗</a><span class="why">가장 유명한 베이징덕 체인. 단체 좌석이 넉넉합니다.</span></li>
+<li class="pi"><figure class="thumb"><img src="img/duck_pancake.jpg" alt="메뉴 예시: 오리 쌈" loading="lazy"><figcaption>메뉴 예시: 오리 쌈</figcaption></figure><div><span class="n">小吊梨汤 鸟巢店</span><span class="rec">1순위</span><span class="zh">베이징요리·오리구이 · 1인 약 ¥90</span><a class="amap" href="https://uri.amap.com/search?keyword=%E5%B0%8F%E5%90%8A%E6%A2%A8%E6%B1%A4%20%E9%B8%9F%E5%B7%A2&city=110000">고덕지도 ↗</a><a class="dp" href="https://www.dianping.com/search/keyword/2/0_%E5%B0%8F%E5%90%8A%E6%A2%A8%E6%B1%A4%20%E9%B8%9F%E5%B7%A2" target="_blank" rel="noopener">가게 사진 ↗</a><span class="why">냐오차오에서 약 760m. 이름의 유래인 배 수프(梨汤)와 베이징덕. 트립닷컴 평점 4.8. 14명이면 큰 원탁 2개나 방(包间)을 예약하세요.</span></div></li>
+<li><span class="n">庭院家人 鸟巢店</span><span class="zh">회양요리 + 오리구이</span><a class="amap" href="https://uri.amap.com/search?keyword=%E5%BA%AD%E9%99%A2%E5%AE%B6%E4%BA%BA%20%E9%B8%9F%E5%B7%A2&city=110000">고덕지도 ↗</a><a class="dp" href="https://www.dianping.com/search/keyword/2/0_%E5%BA%AD%E9%99%A2%E5%AE%B6%E4%BA%BA%20%E9%B8%9F%E5%B7%A2" target="_blank" rel="noopener">가게 사진 ↗</a><span class="why">"수이리팡과 냐오차오를 보고 찾아갔는데 맛있었다"는 방문 후기가 있습니다. 1순위를 예약하지 못했을 때의 대안</span></li>
+<li class="pi"><figure class="thumb"><img src="img/duck_carve.jpg" alt="全聚德 오리 카빙" loading="lazy"><figcaption>全聚德 오리 카빙</figcaption></figure><div><span class="n">全聚德 奥运村店</span><span class="zh">약 1.5km · 택시 5분</span><a class="amap" href="https://uri.amap.com/search?keyword=%E5%85%A8%E8%81%9A%E5%BE%B7%20%E5%A5%A5%E8%BF%90%E6%9D%91&city=110000">고덕지도 ↗</a><a class="dp" href="https://www.dianping.com/search/keyword/2/0_%E5%85%A8%E8%81%9A%E5%BE%B7%20%E5%A5%A5%E8%BF%90%E6%9D%91" target="_blank" rel="noopener">가게 사진 ↗</a><span class="why">가장 유명한 베이징덕 체인. 단체 좌석이 넉넉합니다.</span></div></li>
 </ul>
 <p class="sub cafe">카페 (합류 전 대기용)</p>
 <ul class="places cafe">
-<li><span class="n">Costa Coffee 盘古大观店</span><span class="zh">수이리팡 서쪽 약 300m</span><a class="amap" href="https://uri.amap.com/search?keyword=Costa%20%E7%9B%98%E5%8F%A4%E5%A4%A7%E8%A7%82&city=110000">고덕지도 ↗</a><span class="why">수이리팡 바로 옆이라, 만리장성팀이 늦어질 때 기다리기 좋습니다.</span></li>
+<li class="pi"><figure class="thumb"><img src="img/pangu.jpg" alt="카페가 있는 盘古大观" loading="lazy"><figcaption>카페가 있는 盘古大观</figcaption></figure><div><span class="n">Costa Coffee 盘古大观店</span><span class="zh">수이리팡 서쪽 약 300m</span><a class="amap" href="https://uri.amap.com/search?keyword=Costa%20%E7%9B%98%E5%8F%A4%E5%A4%A7%E8%A7%82&city=110000">고덕지도 ↗</a><a class="dp" href="https://www.dianping.com/search/keyword/2/0_Costa%20%E7%9B%98%E5%8F%A4%E5%A4%A7%E8%A7%82" target="_blank" rel="noopener">가게 사진 ↗</a><span class="why">수이리팡 바로 옆이라, 만리장성팀이 늦어질 때 기다리기 좋습니다.</span></div></li>
 </ul>
 </section>
+
+<p class="src">음식 사진은 해당 가게가 아닌 <b>대표 메뉴 예시</b>입니다(자유 라이선스 사진). 실제 가게 내부·메뉴 사진은 각 항목의 <b>가게 사진 ↗</b>(대众点评)에서 볼 수 있습니다.</p>
 
 <h2>이동 요약</h2>
 <div class="tbl"><table>
@@ -235,6 +252,24 @@ footer{margin-top:40px;font-size:.8rem;color:var(--mute)}
 <li><a href="https://www.thepaper.cn/newsDetail_forward_9638985">望京咖啡馆最挑剔攻略 (澎湃)</a> · <a href="https://news.qq.com/rain/a/20250415A04H2W00">望京太好吃了 (腾讯)</a></li>
 <li><a href="https://you.ctrip.com/food/1/78120001.html">庭院家人 鸟巢店 (携程)</a> · <a href="https://zhuanlan.zhihu.com/p/1951599784315064475">北京自由行 2025 (知乎)</a></li>
 <li>지도 좌표: OpenStreetMap 기여자 · 배경 지도: 高德地图 / OpenStreetMap</li>
+</ul>
+
+<h2>사진 출처 (Wikimedia Commons)</h2>
+<ul class="src">
+<li>s798.jpg · <a href="https://commons.wikimedia.org/wiki/File:Beijing_798_Art_District.jpg">Beijing 798 Art District.jpg</a> · Cory M. Grenier · CC BY-SA 2.0</li>
+<li>s798b.jpg · <a href="https://commons.wikimedia.org/wiki/File:Space-gallery_798-art-district.jpg">Space-gallery 798-art-district.jpg</a> · Leeluv · CC BY-SA 3.0</li>
+<li>ucca.jpg · <a href="https://commons.wikimedia.org/wiki/File:UCCA_Center_for_Contemporary_Art,_Beijing.jpg">UCCA Center for Contemporary Art, Beijing.jpg</a> · Simonfrank91 · CC BY-SA 4.0</li>
+<li>soho.jpg · <a href="https://commons.wikimedia.org/wiki/File:Wangjing_SOHO_(20240125).jpg">Wangjing SOHO (20240125).jpg</a> · CNHowey · CC0</li>
+<li>ice.jpg · <a href="https://commons.wikimedia.org/wiki/File:National_Speed_Skating_Oval_Beijing_1.jpg">National Speed Skating Oval Beijing 1.jpg</a> · Arne Müseler · CC BY-SA 3.0 de</li>
+<li>digital.jpg · <a href="https://commons.wikimedia.org/wiki/File:Digital_Beijing_Building_20160827.jpg">Digital Beijing Building 20160827.jpg</a> · そらみみ · CC BY-SA 4.0</li>
+<li>cube.jpg · <a href="https://commons.wikimedia.org/wiki/File:The_Cube_at_night_(2873471428).jpg">The Cube at night (2873471428).jpg</a> · allen watkin from London, UK · CC BY-SA 2.0</li>
+<li>nest.jpg · <a href="https://commons.wikimedia.org/wiki/File:Beijing_National_Stadium_in_November_2016.jpg">Beijing National Stadium in November 2016.jpg</a> · Another Believer · CC BY-SA 4.0</li>
+<li>duck_carve.jpg · <a href="https://commons.wikimedia.org/wiki/File:Carving_Beijing_Roast_Duck_at_Quanjude,_Beijing.jpg">Carving Beijing Roast Duck at Quanjude, Beijing.jpg</a> · Pixor · CC BY-SA 3.0</li>
+<li>duck_slice.jpg · <a href="https://commons.wikimedia.org/wiki/File:Sliced_Peking_Duck.jpg">Sliced Peking Duck.jpg</a> · Daifawei · CC BY-SA 4.0</li>
+<li>duck_pancake.jpg · <a href="https://commons.wikimedia.org/wiki/File:Peking_duck_pancake.jpg">Peking duck pancake.jpg</a> · J. Patrick Fischer · CC BY-SA 3.0</li>
+<li>jiaozi.jpg · <a href="https://commons.wikimedia.org/wiki/File:Jiaozi_GS_CN.jpg">Jiaozi GS CN.jpg</a> · Emcc83 · CC BY-SA 4.0</li>
+<li>hongshao.jpg · <a href="https://commons.wikimedia.org/wiki/File:Red_braised_pork_(20141106191221).JPG">Red braised pork (20141106191221).JPG</a> · N509FZ · CC BY-SA 4.0</li>
+<li>pangu.jpg · <a href="https://commons.wikimedia.org/wiki/File:Pangu_Plaza_Tall_Building_at_Dusk.jpg">Pangu Plaza Tall Building at Dusk.jpg</a> · Bon courage · CC0</li>
 </ul>
 
 <footer>시내투어팀 공유용 · 정보는 작성 시점 기준이며, 현장에서 바뀔 수 있습니다.</footer>
