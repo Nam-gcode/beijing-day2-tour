@@ -33,6 +33,7 @@ h3{font-size:1rem;margin:0}
 .dot{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:-1px;margin-right:4px}
 .num{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;
   background:var(--accent);color:#fff;font-weight:700;font-size:14px;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.35)}
+.num.home{background:#444;font-size:12px}
 .num.meet{background:var(--meet);width:34px;height:34px;font-size:12px}
 /* timeline */
 .tl{list-style:none;margin:0;padding:0}
@@ -98,24 +99,26 @@ footer{margin-top:40px;font-size:.8rem;color:var(--mute)}
 <div class="legend">
   <span><span class="dot" style="background:var(--accent)"></span>답사 지점(번호 = 방문 순서)</span>
   <span><span class="dot" style="background:var(--meet)"></span>만리장성팀 합류 지점</span>
+  <span><span class="dot" style="background:#444"></span>H = 숙소 부근(대략 위치 · 정확한 주소는 단톡방 공지)</span>
   <span>점선 = 이동 경로 · 우상단 버튼으로 영어/중국어 지도 전환(택시기사에게는 중국어 지도를 보여주세요)</span>
 </div>
 
 <h2>타임라인</h2>
 <ul class="tl">
-  <li><span class="t">09:30</span><div>숙소 출발 → 798 <span class="mv">지하철 14호선 <b>望京南(왕징난)</b> 또는 <b>将台(장타이)</b>역에서 도보 10–15분. 택시면 798 3·4번 문(酒仙桥路) 하차.</span></div></li>
+  <li><span class="t">09:30</span><div><b>숙소 출발</b> → 798 · <b>택시 2대, 25–35분</b> <span class="mv">약 9km, 차당 ¥30–40. 기사에게 "798艺术区 酒仙桥路 3号门"이라고 보여주세요. 지하철은 환승이 두 번이라(→15호선→14호선 望京南) 50분 넘게 걸려서 택시를 권합니다.</span></div></li>
   <li><span class="t">10:00</span><div><b>① 798 예술구</b> · UCCA, 톱날지붕 공장동, 751 D·PARK <span class="mv">갤러리는 대부분 10:00 오픈</span></div></li>
   <li><span class="t">12:00</span><div><b>점심 · 798 안</b> <span class="mv">아래 ① 밥집 목록 참고</span></div></li>
   <li><span class="t">13:15</span><div><b>카페 · 798 안</b>, 또는 왕징으로 넘어가서 SOHO 뷰 카페</div></li>
   <li class="move"><span class="t">14:00</span><div class="mv">798 → 왕징 SOHO · <b>택시 약 10분</b>(약 3km, 차당 ¥15 안팎) / 도보 30분</div></li>
   <li><span class="t">14:15</span><div><b>② 왕징 SOHO</b> · 세 개의 타워 사이 공원 한 바퀴, 맞은편 麒麟社에서 전경</div></li>
-  <li class="move"><span class="t">15:15</span><div class="mv">왕징 SOHO → 빙쓰다이 · <b>택시 30–40분</b>(약 13km, 차당 ¥40–50). 지하철이면 15호선 望京东→奥林匹克公园(5정거장) 후 8호선 1정거장 森林公园南门, 도보 15분 · 총 약 50분</div></li>
+  <li class="move"><span class="t">15:15</span><div class="mv">왕징 SOHO → 빙쓰다이 · <b>택시 30–40분</b>(약 13km, 차당 ¥40–50). 지하철이면 15호선 望京东→奥林匹克公园(6정거장) 후 8호선 1정거장 森林公园南门, 도보 15분 · 총 약 50분</div></li>
   <li><span class="t">15:55</span><div><b>③ 국가속도스케이팅경기장(빙쓰다이)</b> · 해 질 녘 리본 외관 <span class="mv">11월 일몰 약 16:55</span></div></li>
   <li class="move"><span class="t">16:35</span><div class="mv">빙쓰다이 → 디지털 베이징 · <b>택시 약 10분</b>(약 3km) / 도보 35분</div></li>
   <li><span class="t">16:45</span><div><b>④ 디지털 베이징</b> · 회로기판 입면, 해 진 뒤 조명 <span class="mv">합류 지점까지 도보 10분</span></div></li>
   <li class="meet"><span class="t">17:00</span><div><b>만리장성팀 합류 · 地铁 奥林匹克公园站</b>(8·15호선) <span class="mv">만리장성팀이 차로 오면 北辰西路 쪽에서 내리면 가깝습니다. 정확한 출구는 당일 위챗으로 공유하세요.</span></div></li>
   <li><span class="t">17:15</span><div><b>⑤ 수이리팡 → ⑥ 냐오차오</b> · 중축선을 따라 남쪽으로 걸으며 야경 <span class="mv">합류 지점에서 수이리팡까지 도보 15분, 두 건물 사이 도보 7분</span></div></li>
   <li><span class="t">18:45</span><div><b>저녁 · 14명</b> <span class="mv">아래 ⑤⑥ 밥집 목록 참고 · <b>단체석 예약 필수</b></span></div></li>
+  <li class="move"><span class="t">20:30</span><div class="mv">저녁 → 숙소 · <b>택시 약 10분</b>(약 4km, 차당 ¥15 안팎). 14명이면 택시 4대가 필요합니다.</div></li>
 </ul>
 
 <div class="note warn"><b>7명 이동 팁</b>
@@ -229,13 +232,14 @@ footer{margin-top:40px;font-size:.8rem;color:var(--mute)}
 <div class="tbl"><table>
 <thead><tr><th>구간</th><th>추천 수단</th><th>시간</th><th>비고</th></tr></thead>
 <tbody>
-<tr><td>숙소 → ①798</td><td>지하철 14호선 望京南 / 将台</td><td>숙소에 따라 다름</td><td>역에서 도보 10–15분</td></tr>
+<tr><td>숙소 → ①798</td><td>택시 2대</td><td>25–35분</td><td>약 9km · 지하철은 2회 환승, 50분+</td></tr>
 <tr><td>①798 → ②왕징 SOHO</td><td>택시 2대</td><td>약 10분</td><td>약 3km · 도보 30분</td></tr>
 <tr><td>②왕징 SOHO → ③빙쓰다이</td><td>택시 2대</td><td>30–40분</td><td>약 13km · 지하철 15→8호선 약 50분</td></tr>
 <tr><td>③빙쓰다이 → ④디지털 베이징</td><td>택시 2대</td><td>약 10분</td><td>약 3km · 도보 35분</td></tr>
 <tr><td>④ → 합류(奥林匹克公园站)</td><td>도보</td><td>약 10분</td><td>약 700m</td></tr>
 <tr><td>합류 → ⑤수이리팡 → ⑥냐오차오</td><td>도보</td><td>15분 + 7분</td><td>중축선을 따라 남쪽으로</td></tr>
 <tr><td>⑥ → 저녁(小吊梨汤)</td><td>도보</td><td>약 10분</td><td>약 760m</td></tr>
+<tr><td>저녁 → 숙소</td><td>택시 (14명이면 4대)</td><td>약 10분</td><td>약 4km</td></tr>
 </tbody></table></div>
 <p class="src">시간은 지도상 거리로 추정한 값입니다. 당일 고덕지도(高德地图)에서 실제 교통 상황을 확인하세요.</p>
 
@@ -338,6 +342,7 @@ function gcj(lat,lng){if(outOfChina(lat,lng))return[lat,lng];var a=6378245,ee=.0
 
 // 좌표: OpenStreetMap (WGS-84)
 var stops=[
+ {lab:"숙소 부근",dir:"left",k:"H",name:"숙소 부근 (대략 위치)",zh:"정확한 주소는 단톡방 공지",ll:[39.990,116.413],t:"09:30 출발 · 20:30 복귀",home:true},
  {lab:"798 예술구",dir:"right",k:"1",name:"798 예술구 · UCCA",zh:"798艺术区",ll:[39.98276,116.48919],t:"10:00–14:00"},
  {lab:"왕징 SOHO",dir:"right",k:"2",name:"왕징 SOHO",zh:"望京SOHO",ll:[39.99560,116.47482],t:"14:15–15:15"},
  {lab:"빙쓰다이",dir:"right",k:"3",name:"빙쓰다이 (국가속도스케이팅경기장)",zh:"国家速滑馆",ll:[40.01603,116.37138],t:"15:55–16:35"},
@@ -359,11 +364,11 @@ function draw(){
   var pts=stops.map(function(s){return useGcj?gcj(s.ll[0],s.ll[1]):s.ll});
   L.polyline(pts,{color:'#c0392b',weight:3,opacity:.7,dashArray:'6 8'}).addTo(group);
   stops.forEach(function(s,i){
-    var icon=L.divIcon({className:'',html:'<div class="num'+(s.meet?' meet':'')+'">'+s.k+'</div>',iconSize:[s.meet?34:28,s.meet?34:28],iconAnchor:[s.meet?17:14,s.meet?17:14]});
+    var icon=L.divIcon({className:'',html:'<div class="num'+(s.meet?' meet':'')+(s.home?' home':'')+'">'+s.k+'</div>',iconSize:[s.meet?34:28,s.meet?34:28],iconAnchor:[s.meet?17:14,s.meet?17:14]});
     var g=gcj(s.ll[0],s.ll[1]);
     var nav='https://uri.amap.com/marker?position='+g[1].toFixed(6)+','+g[0].toFixed(6)+'&name='+encodeURIComponent(s.zh);
     L.marker(pts[i],{icon:icon,zIndexOffset:s.meet?1000:0}).bindTooltip(s.lab,{permanent:true,direction:s.dir,offset:[s.dir=='left'?-16:16,0],className:'lbl'+(s.meet?' lbl-meet':'')}).addTo(group)
-     .bindPopup('<b>'+s.name+'</b><br>'+s.zh+' · '+s.t+'<br><a href="'+nav+'" target="_blank" rel="noopener">고덕지도에서 열기 ↗</a>'+(s.meet?'':' · <a href="#s'+s.k+'">설명 ↓</a>'));
+     .bindPopup('<b>'+s.name+'</b><br>'+s.zh+' · '+s.t+'<br><a href="'+nav+'" target="_blank" rel="noopener">고덕지도에서 열기 ↗</a>'+((s.meet||s.home)?'':' · <a href="#s'+s.k+'">설명 ↓</a>'));
   });
   return pts;
 }
