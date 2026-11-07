@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>베이징 2일차 시내투어</title>
+<meta name="description" content="798 → 왕징 SOHO → 올림픽공원(빙쓰다이·디지털 베이징·수이리팡·냐오차오) 건축답사 동선, 밥집·카페, 교통">
+<link rel="stylesheet" href="lib/leaflet.css">
+<style>
+:root{
+  --bg:#f6f4ef; --card:#ffffff; --ink:#1d1d1b; --mute:#6b6862; --line:#e2ded5;
+  --accent:#c0392b; --meet:#1f6feb; --food:#b45309; --cafe:#0f766e; --chip:#efebe3;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#16161a; --card:#202026; --ink:#ecebe8; --mute:#a3a09a; --line:#34343c;
+    --accent:#ef6b5b; --meet:#58a6ff; --food:#f0a35b; --cafe:#4fd1c5; --chip:#2a2a31; }
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR","Malgun Gothic",sans-serif;
+  line-height:1.55;-webkit-text-size-adjust:100%}
+.wrap{max-width:860px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:1.55rem;margin:.2em 0 .1em;letter-spacing:-.02em}
+h2{font-size:1.15rem;margin:2em 0 .6em;padding-bottom:.3em;border-bottom:2px solid var(--ink)}
+h3{font-size:1rem;margin:0}
+.lede{color:var(--mute);margin:0 0 14px}
+.pill{display:inline-block;font-size:.78rem;padding:2px 9px;border-radius:99px;background:var(--chip);color:var(--mute);margin:2px 4px 2px 0}
+#map{height:62vh;min-height:360px;border-radius:12px;border:1px solid var(--line);z-index:0}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.82rem;color:var(--mute);margin:8px 2px 0}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:-1px;margin-right:4px}
+.num{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:#fff;font-weight:700;font-size:14px;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.35)}
+.num.meet{background:var(--meet);width:34px;height:34px;font-size:12px}
+/* timeline */
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:62px 1fr;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.tl .t{font-variant-numeric:tabular-nums;font-weight:700}
+.tl .mv{color:var(--mute);font-size:.88rem}
+.tl .mv b{color:var(--ink)}
+.tl li.meet .t{color:var(--meet)}
+.tl li.move{background:transparent}
+.tl li.move .t{color:var(--mute);font-weight:500}
+/* spot cards */
+.spot{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:14px 0}
+.spot header{display:flex;gap:10px;align-items:center;margin-bottom:6px}
+.spot header .num{flex:0 0 auto}
+.spot .arch{color:var(--mute);font-size:.86rem;margin:0 0 6px}
+.spot .look{font-size:.92rem;margin:4px 0 8px;padding-left:1.1em}
+.spot .look li{margin:2px 0}
+.sub{font-size:.8rem;font-weight:700;letter-spacing:.04em;margin:12px 0 4px}
+.sub.food{color:var(--food)} .sub.cafe{color:var(--cafe)}
+.places{list-style:none;margin:0;padding:0}
+.places li{padding:7px 0;border-top:1px solid var(--line);font-size:.92rem}
+.places li:first-child{border-top:0}
+.places .n{font-weight:700}
+.places .zh{color:var(--mute);font-size:.84rem;margin-left:4px}
+.places .why{color:var(--mute);font-size:.86rem;display:block}
+.places .rec{font-size:.72rem;font-weight:700;color:#fff;background:var(--food);border-radius:4px;padding:1px 5px;margin-left:4px;vertical-align:1px}
+.places.cafe .rec{background:var(--cafe)}
+a{color:inherit;text-decoration-color:var(--mute);text-underline-offset:2px}
+a.amap{font-size:.78rem;color:var(--meet);text-decoration:none;white-space:nowrap;margin-left:4px}
+table{width:100%;border-collapse:collapse;font-size:.9rem;background:var(--card);border-radius:10px;overflow:hidden}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.8rem;color:var(--mute);font-weight:600;background:var(--chip)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+.note{background:var(--card);border-left:4px solid var(--meet);padding:10px 14px;border-radius:6px;font-size:.92rem;margin:12px 0}
+.note.warn{border-left-color:var(--accent)}
+.note ul{margin:4px 0;padding-left:1.1em}
+.src{font-size:.82rem;color:var(--mute)} .src li{margin:3px 0;word-break:break-all}
+footer{margin-top:40px;font-size:.8rem;color:var(--mute)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<p class="pill">베이징 2일차 · 시내투어팀 7명</p>
+<h1>798 → 왕징 SOHO → 올림픽공원</h1>
+<p class="lede">낮에는 시내투어팀이 공장 리모델링과 자하 하디드 건물을 보고, 해 지기 전 올림픽공원으로 넘어갑니다. 17:00쯤 <b>만리장성팀과 올림픽공원역에서 합류</b>해서 수이리팡과 냐오차오 야경을 같이 보고 저녁을 먹습니다.</p>
+
+<div id="map" role="img" aria-label="답사 지점 지도"></div>
+<div class="legend">
+  <span><span class="dot" style="background:var(--accent)"></span>답사 지점(번호 = 방문 순서)</span>
+  <span><span class="dot" style="background:var(--meet)"></span>만리장성팀 합류 지점</span>
+  <span>점선 = 이동 경로 · 우상단에서 지도 종류 전환</span>
+</div>
+
+<h2>타임라인</h2>
+<ul class="tl">
+  <li><span class="t">09:30</span><div>숙소 출발 → 798 <span class="mv">지하철 14호선 <b>望京南(왕징난)</b> 또는 <b>将台(장타이)</b>역에서 도보 10–15분. 택시면 798 3·4번 문(酒仙桥路) 하차.</span></div></li>
+  <li><span class="t">10:00</span><div><b>① 798 예술구</b> · UCCA, 톱날지붕 공장동, 751 D·PARK <span class="mv">갤러리는 대부분 10:00 오픈</span></div></li>
+  <li><span class="t">12:00</span><div><b>점심 · 798 안</b> <span class="mv">아래 ① 밥집 목록 참고</span></div></li>
+  <li><span class="t">13:15</span><div><b>카페 · 798 안</b>, 또는 왕징으로 넘어가서 SOHO 뷰 카페</div></li>
+  <li class="move"><span class="t">14:00</span><div class="mv">798 → 왕징 SOHO · <b>택시 약 10분</b>(약 3km, 차당 ¥15 안팎) / 도보 30분</div></li>
+  <li><span class="t">14:15</span><div><b>② 왕징 SOHO</b> · 세 개의 타워 사이 공원 한 바퀴, 맞은편 麒麟社에서 전경</div></li>
+  <li class="move"><span class="t">15:15</span><div class="mv">왕징 SOHO → 빙쓰다이 · <b>택시 30–40분</b>(약 13km, 차당 ¥40–50). 지하철이면 15호선 望京东→奥林匹克公园(5정거장) 후 8호선 1정거장 森林公园南门, 도보 15분 · 총 약 50분</div></li>
+  <li><span class="t">15:55</span><div><b>③ 국가속도스케이팅경기장(빙쓰다이)</b> · 해 질 녘 리본 외관 <span class="mv">11월 일몰 약 16:55</span></div></li>
+  <li class="move"><span class="t">16:35</span><div class="mv">빙쓰다이 → 디지털 베이징 · <b>택시 약 10분</b>(약 3km) / 도보 35분</div></li>
+  <li><span class="t">16:45</span><div><b>④ 디지털 베이징</b> · 회로기판 입면, 해 진 뒤 조명 <span class="mv">합류 지점까지 도보 10분</span></div></li>
+  <li class="meet"><span class="t">17:00</span><div><b>만리장성팀 합류 · 地铁 奥林匹克公园站</b>(8·15호선) <span class="mv">만리장성팀이 차로 오면 北辰西路 쪽에서 내리면 가깝습니다. 정확한 출구는 당일 위챗으로 공유하세요.</span></div></li>
+  <li><span class="t">17:15</span><div><b>⑤ 수이리팡 → ⑥ 냐오차오</b> · 중축선을 따라 남쪽으로 걸으며 야경 <span class="mv">합류 지점에서 수이리팡까지 도보 15분, 두 건물 사이 도보 7분</span></div></li>
+  <li><span class="t">18:45</span><div><b>저녁 · 14명</b> <span class="mv">아래 ⑤⑥ 밥집 목록 참고 · <b>단체석 예약 필수</b></span></div></li>
+</ul>
+
+<div class="note warn"><b>7명 이동 팁</b>
+<ul>
+<li>택시(DiDi)는 승객 4명까지라 <b>두 대로 나눠 부르세요</b>(4+3). 알리페이 안의 DiDi 미니프로그램으로 부를 수 있습니다.</li>
+<li>지하철은 알리페이 <b>交通出行 → 乘车码</b>로 탈 수 있고, 한 번에 ¥3–6입니다. 역마다 보안검색이 있어 출퇴근 시간에는 5분쯤 더 걸립니다.</li>
+<li>15:15–16:00은 동서 방향 도로가 막히기 시작합니다. 택시가 40분을 넘길 것 같으면 지하철이 시간이 더 정확합니다.</li>
+</ul></div>
+
+<h2>지점별 답사 포인트와 밥집·카페</h2>
+
+<section class="spot" id="s1">
+<header><div class="num">1</div><h3>798 예술구 <span class="zh">798艺术区</span></h3></header>
+<p class="arch">1950년대 동독 기술진이 설계한 718 연합공장(톱날형 북측 채광 지붕) → 2000년대 예술구. UCCA는 2019년 OMA가 리노베이션.</p>
+<ul class="look">
+<li>톱날지붕의 아치형 콘크리트 셸과 북측 고창. 지붕 단면을 내부에서 확인하세요.</li>
+<li>UCCA: 기존 공장동 안에 새 로비와 출입부를 어떻게 끼워 넣었는지</li>
+<li>751 D·PARK: 가스탱크와 배관을 무대·전시 공간으로 바꾼 산업유산 재생</li>
+</ul>
+<p class="sub food">밥집 (점심)</p>
+<ul class="places">
+<li><span class="n">便宜坊 798점</span><span class="rec">단체 추천</span><span class="zh">Pianyifang · 1인 약 ¥120</span><a class="amap" href="https://uri.amap.com/search?keyword=%E4%BE%BF%E5%AE%9C%E5%9D%8A%20798&city=110000">고덕지도 ↗</a><span class="why">화덕(焖炉) 베이징덕 노포의 798 지점. 원탁이 있어 7명이 앉기 편합니다.</span></li>
+<li><span class="n">胶东刘妈妈肉汁饺子</span><span class="zh">1인 약 ¥50</span><a class="amap" href="https://uri.amap.com/search?keyword=%E8%83%B6%E4%B8%9C%E5%88%98%E5%A6%88%E5%A6%88%E8%82%89%E6%B1%81%E9%A5%BA%E5%AD%90%20798&city=110000">고덕지도 ↗</a><span class="why">798 골목 안 수제 해물 만두집(삼치·가리비). 가볍고 싸게 먹을 때 좋습니다.</span></li>
+<li><span class="n">沈记菜馆</span><span class="zh">Shen Ji · 회양요리</span><a class="amap" href="https://uri.amap.com/search?keyword=%E6%B2%88%E8%AE%B0%E8%8F%9C%E9%A6%86%20798&city=110000">고덕지도 ↗</a><span class="why">798에서 가장 오래된 가족식당으로 소개되는 곳이고, 홍샤오러우가 대표 메뉴입니다. 예약을 권장합니다.</span></li>
+<li><span class="n">孟林厨房</span><span class="zh">1인 약 ¥70</span><a class="amap" href="https://uri.amap.com/search?keyword=%E5%AD%9F%E6%9E%97%E5%8E%A8%E6%88%BF&city=110000">고덕지도 ↗</a><span class="why">식물로 둘러싸인 작은 가게, 쓰촨·베이징 가정식</span></li>
+</ul>
+<p class="sub cafe">카페</p>
+<ul class="places cafe">
+<li><span class="n">At Café</span><span class="rec">답사 추천</span><span class="zh">爱特咖啡</span><a class="amap" href="https://uri.amap.com/search?keyword=%E7%88%B1%E7%89%B9%E5%92%96%E5%95%A1%20798&city=110000">고덕지도 ↗</a><span class="why">2003년 문을 연 798 최초의 아트 카페. 옛 공장 식당 건물에 있습니다.</span></li>
+<li><span class="n">TIANROAST Coffee</span><span class="zh">星空间(Star Gallery) 맞은편</span><a class="amap" href="https://uri.amap.com/search?keyword=TIANROAST%20798&city=110000">고덕지도 ↗</a><span class="why">넓은 공간에 커피가 진하다는 평. 7명이 같이 앉기 좋습니다.</span></li>
+<li><span class="n">Such A Cafe</span><span class="zh">B27, 706北一街 · 10–19시</span><a class="amap" href="https://uri.amap.com/search?keyword=Such%20A%20Cafe%20798&city=110000">고덕지도 ↗</a><span class="why">The Beijinger가 "798 최고의 카페"로 꼽은 곳. 실내 볼풀이 있습니다.</span></li>
+<li><span class="n">扑扑 PUPU</span><span class="zh">디저트 · 1인 약 ¥60</span><a class="amap" href="https://uri.amap.com/search?keyword=%E6%89%91%E6%89%91%20798&city=110000">고덕지도 ↗</a><span class="why">레트로 빙수와 치즈케이크. 사진 찍기 좋은 곳입니다.</span></li>
+</ul>
+</section>
+
+<section class="spot" id="s2">
+<header><div class="num">2</div><h3>왕징 SOHO <span class="zh">望京SOHO</span></h3></header>
+<p class="arch">Zaha Hadid Architects, 2014. 높이 200m · 127m · 118m 타워 3개.</p>
+<ul class="look">
+<li>세 매스가 어느 방향에서 봐도 서로 겹쳐 보이도록 배치한 방식. 공원을 한 바퀴 돌며 확인하세요.</li>
+<li>알루미늄 패널 띠가 곡면을 따라 이어지는 커튼월 디테일</li>
+<li>저층부 상가와 지하 연결, 1층에서 보행자가 어떻게 흘러가는지</li>
+</ul>
+<p class="sub cafe">카페 · 간식</p>
+<ul class="places cafe">
+<li><span class="n">CUP ONE (麒麟社)</span><span class="rec">뷰 추천</span><span class="zh">1인 약 ¥35</span><a class="amap" href="https://uri.amap.com/search?keyword=CUP%20ONE%20%E9%BA%92%E9%BA%9F%E7%A4%BE&city=110000">고덕지도 ↗</a><span class="why">왕징 SOHO 맞은편 麒麟社 2–3층. 통창으로 SOHO가 정면에 보이고, 테이블 간격이 넓습니다.</span></li>
+<li><span class="n">IF 野生面包</span><span class="zh">望京SOHO T1</span><a class="amap" href="https://uri.amap.com/search?keyword=%E9%87%8E%E7%94%9F%E9%9D%A2%E5%8C%85%20%E6%9C%9B%E4%BA%ACSOHO&city=110000">고덕지도 ↗</a><span class="why">베이글·스콘 등 개당 ¥12 안팎. 이동 중 간식용</span></li>
+<li><span class="n">卡瓦小镇咖啡馆 望京店</span><span class="zh">1인 약 ¥49</span><a class="amap" href="https://uri.amap.com/search?keyword=%E5%8D%A1%E7%93%A6%E5%B0%8F%E9%95%87%E5%92%96%E5%95%A1%E9%A6%86%20%E6%9C%9B%E4%BA%AC&city=110000">고덕지도 ↗</a><span class="why">望京东园, SOHO 근처. 독일식 간식과 애프터눈티</span></li>
+</ul>
+</section>
+
+<section class="spot" id="s3">
+<header><div class="num">3</div><h3>국가속도스케이팅경기장 · 빙쓰다이 <span class="zh">国家速滑馆 · 冰丝带</span></h3></header>
+<p class="arch">Populous + BIAD, 2021 (2022 동계올림픽). 지붕은 케이블넷 구조.</p>
+<ul class="look">
+<li>유리 커튼월 밖을 감는 22개의 '리본' 튜브. 스케이트 날이 지나간 자국을 표현했고, 해가 지면 LED가 켜집니다.</li>
+<li>안장형 쌍곡 케이블넷 지붕: 큰 스팬을 가볍게 덮는 방식</li>
+<li>2008 하계 시설(냐오차오·수이리팡)과 2022 동계 시설이 한 축 위에 놓인 관계</li>
+</ul>
+</section>
+
+<section class="spot" id="s4">
+<header><div class="num">4</div><h3>디지털 베이징 <span class="zh">数字北京大厦</span></h3></header>
+<p class="arch">Studio Pei-Zhu(朱锫), 2008. 올림픽 통신·데이터 센터</p>
+<ul class="look">
+<li>얇은 판상 매스를 여러 장 나란히 세운 구성. 집적회로를 은유합니다.</li>
+<li>입면의 LED 선과 회로 패턴. 해 진 직후에 보면 좋습니다.</li>
+<li>창이 거의 없는 기계실·데이터실 건물을 상징적인 입면으로 만든 방식</li>
+</ul>
+</section>
+
+<section class="spot" id="s5">
+<header><div class="num">5</div><h3>국가수영센터 · 수이리팡 <span class="zh">国家游泳中心 · 水立方</span></h3></header>
+<p class="arch">PTW Architects + CSCEC + Arup, 2008. 2022년에는 컬링장 '빙리팡(冰立方)'으로 전환</p>
+<ul class="look">
+<li>비눗방울 형상(Weaire–Phelan 구조)의 입체 강골조와 ETFE 쿠션 외피</li>
+<li>밤에 외피 전체가 색을 바꾸는 조명. 냐오차오의 붉은 조명과 대비됩니다.</li>
+<li>수영장 위에 조립식 구조를 깔아 컬링 빙판으로 바꾸는 '물↔얼음' 전환 방식</li>
+</ul>
+</section>
+
+<section class="spot" id="s6">
+<header><div class="num">6</div><h3>국가체육장 · 냐오차오 <span class="zh">国家体育场 · 鸟巢</span></h3></header>
+<p class="arch">Herzog &amp; de Meuron (+ 아이웨이웨이, Arup, CAG), 2008</p>
+<ul class="look">
+<li>구조와 외피가 하나로 된 강재 그물: 주구조 24개 트러스 기둥과 2차 부재의 위계</li>
+<li>개폐 지붕 계획을 취소하고 남은 큰 개구부. 원안과 실시안을 비교해 보세요.</li>
+<li>안쪽 붉은 콘크리트 볼(스탠드)과 바깥 강재 쉘 사이 틈이 만드는 동선 공간</li>
+</ul>
+<p class="sub food">밥집 (저녁 · 14명)</p>
+<ul class="places">
+<li><span class="n">小吊梨汤 鸟巢店</span><span class="rec">1순위</span><span class="zh">베이징요리·오리구이 · 1인 약 ¥90</span><a class="amap" href="https://uri.amap.com/search?keyword=%E5%B0%8F%E5%90%8A%E6%A2%A8%E6%B1%A4%20%E9%B8%9F%E5%B7%A2&city=110000">고덕지도 ↗</a><span class="why">냐오차오에서 약 760m. 이름의 유래인 배 수프(梨汤)와 베이징덕. 트립닷컴 평점 4.8. 14명이면 큰 원탁 2개나 방(包间)을 예약하세요.</span></li>
+<li><span class="n">庭院家人 鸟巢店</span><span class="zh">회양요리 + 오리구이</span><a class="amap" href="https://uri.amap.com/search?keyword=%E5%BA%AD%E9%99%A2%E5%AE%B6%E4%BA%BA%20%E9%B8%9F%E5%B7%A2&city=110000">고덕지도 ↗</a><span class="why">"수이리팡과 냐오차오를 보고 찾아갔는데 맛있었다"는 방문 후기가 있습니다. 1순위를 예약하지 못했을 때의 대안</span></li>
+<li><span class="n">全聚德 奥运村店</span><span class="zh">약 1.5km · 택시 5분</span><a class="amap" href="https://uri.amap.com/search?keyword=%E5%85%A8%E8%81%9A%E5%BE%B7%20%E5%A5%A5%E8%BF%90%E6%9D%91&city=110000">고덕지도 ↗</a><span class="why">가장 유명한 베이징덕 체인. 단체 좌석이 넉넉합니다.</span></li>
+</ul>
+<p class="sub cafe">카페 (합류 전 대기용)</p>
+<ul class="places cafe">
+<li><span class="n">Costa Coffee 盘古大观店</span><span class="zh">수이리팡 서쪽 약 300m</span><a class="amap" href="https://uri.amap.com/search?keyword=Costa%20%E7%9B%98%E5%8F%A4%E5%A4%A7%E8%A7%82&city=110000">고덕지도 ↗</a><span class="why">수이리팡 바로 옆이라, 만리장성팀이 늦어질 때 기다리기 좋습니다.</span></li>
+</ul>
+</section>
+
+<h2>이동 요약</h2>
+<div class="tbl"><table>
+<thead><tr><th>구간</th><th>추천 수단</th><th>시간</th><th>비고</th></tr></thead>
+<tbody>
+<tr><td>숙소 → ①798</td><td>지하철 14호선 望京南 / 将台</td><td>숙소에 따라 다름</td><td>역에서 도보 10–15분</td></tr>
+<tr><td>①798 → ②왕징 SOHO</td><td>택시 2대</td><td>약 10분</td><td>약 3km · 도보 30분</td></tr>
+<tr><td>②왕징 SOHO → ③빙쓰다이</td><td>택시 2대</td><td>30–40분</td><td>약 13km · 지하철 15→8호선 약 50분</td></tr>
+<tr><td>③빙쓰다이 → ④디지털 베이징</td><td>택시 2대</td><td>약 10분</td><td>약 3km · 도보 35분</td></tr>
+<tr><td>④ → 합류(奥林匹克公园站)</td><td>도보</td><td>약 10분</td><td>약 700m</td></tr>
+<tr><td>합류 → ⑤수이리팡 → ⑥냐오차오</td><td>도보</td><td>15분 + 7분</td><td>중축선을 따라 남쪽으로</td></tr>
+<tr><td>⑥ → 저녁(小吊梨汤)</td><td>도보</td><td>약 10분</td><td>약 760m</td></tr>
+</tbody></table></div>
+<p class="src">시간은 지도상 거리로 추정한 값입니다. 당일 고덕지도(高德地图)에서 실제 교통 상황을 확인하세요.</p>
+
+<div class="note"><b>미리 확인할 것</b>
+<ul>
+<li><b>월요일</b>에는 798 갤러리와 UCCA 대부분이 쉽니다.</li>
+<li>냐오차오·수이리팡 <b>내부 관람</b>은 유료이고, 입장 마감이 일몰 무렵이라 이 동선은 <b>외관과 야경 위주</b>입니다. 내부를 보려면 시내투어팀이 오후에 먼저 입장하는 식으로 순서를 바꾸세요.</li>
+<li>경관 조명은 시즌과 행사에 따라 켜지는 시간이 다릅니다. 보통 해가 진 뒤 30분–1시간 사이에 켜집니다.</li>
+<li>중국 안에서는 이 페이지(github.io)가 느리거나 막힐 수 있습니다. 한국 로밍이나 eSIM으로 접속하고, <b>출국 전에 스크린샷</b>을 저장해 두세요.</li>
+<li>식당 영업 여부와 가격은 대중점평(大众点评)에서 한 번 더 확인하세요.</li>
+</ul></div>
+
+<h2>참고한 자료</h2>
+<ul class="src">
+<li>브이로그 · <a href="https://www.youtube.com/watch?v=l4YmGH-Ztxk">beijing vlog: food, places, shopping spots</a> (798 카페 구간)</li>
+<li>브이로그 · <a href="https://www.youtube.com/watch?v=oxQMa4r-r40">A Walk Around Beijing's 798 Art District</a></li>
+<li>브이로그 · <a href="https://www.youtube.com/watch?v=yZ8bGwcxfuM">Beijing Olympic Park Vlog – Olympic Tower</a></li>
+<li>브이로그 · <a href="https://www.youtube.com/watch?v=JaLjcAftCGs">중국 자유여행 – 북경에서 작정하고 먹은 날, 맛집 추천</a></li>
+<li><a href="https://www.visitbeijing.com.cn/article/4MyNb6YV3Qi">北京798附近美食，看这一篇就够了 (visitbeijing)</a></li>
+<li><a href="https://m.bj.bendibao.com/meishi/193268.html">北京798艺术区餐厅推荐 (本地宝)</a></li>
+<li><a href="https://thebeijinger.com/node/1440315">Such A is the Best Café in 798 (The Beijinger)</a> · <a href="https://ocula.com/magazine/spotlight/top-art-and-eating-spots-for-beijing-summer-2024/">Ocula 2024</a> · <a href="https://theculturetrip.com/asia/china/beijing/articles/the-10-best-restaurants-in-798-art-district-beijing">Culture Trip</a></li>
+<li><a href="https://www.thepaper.cn/newsDetail_forward_9638985">望京咖啡馆最挑剔攻略 (澎湃)</a> · <a href="https://news.qq.com/rain/a/20250415A04H2W00">望京太好吃了 (腾讯)</a></li>
+<li><a href="https://you.ctrip.com/food/1/78120001.html">庭院家人 鸟巢店 (携程)</a> · <a href="https://zhuanlan.zhihu.com/p/1951599784315064475">北京自由行 2025 (知乎)</a></li>
+<li>지도 좌표: OpenStreetMap 기여자 · 배경 지도: 高德地图 / OpenStreetMap</li>
+</ul>
+
+<footer>시내투어팀 공유용 · 정보는 작성 시점 기준이며, 현장에서 바뀔 수 있습니다.</footer>
+</div>
+
+<script src="lib/leaflet.js"></script>
+<script>
+// WGS-84 → GCJ-02 (중국 지도 타일은 GCJ-02 좌표계)
+function outOfChina(lat,lng){return lng<72.004||lng>137.8347||lat<0.8293||lat>55.8271}
+function tLat(x,y){var r=-100+2*x+3*y+.2*y*y+.1*x*y+.2*Math.sqrt(Math.abs(x));r+=(20*Math.sin(6*x*Math.PI)+20*Math.sin(2*x*Math.PI))*2/3;r+=(20*Math.sin(y*Math.PI)+40*Math.sin(y/3*Math.PI))*2/3;r+=(160*Math.sin(y/12*Math.PI)+320*Math.sin(y*Math.PI/30))*2/3;return r}
+function tLng(x,y){var r=300+x+2*y+.1*x*x+.1*x*y+.1*Math.sqrt(Math.abs(x));r+=(20*Math.sin(6*x*Math.PI)+20*Math.sin(2*x*Math.PI))*2/3;r+=(20*Math.sin(x*Math.PI)+40*Math.sin(x/3*Math.PI))*2/3;r+=(150*Math.sin(x/12*Math.PI)+300*Math.sin(x/30*Math.PI))*2/3;return r}
+function gcj(lat,lng){if(outOfChina(lat,lng))return[lat,lng];var a=6378245,ee=.00669342162296594323;var dLat=tLat(lng-105,lat-35),dLng=tLng(lng-105,lat-35);var rad=lat/180*Math.PI,m=Math.sin(rad);m=1-ee*m*m;var s=Math.sqrt(m);dLat=dLat*180/((a*(1-ee))/(m*s)*Math.PI);dLng=dLng*180/(a/s*Math.cos(rad)*Math.PI);return[lat+dLat,lng+dLng]}
+
+// 좌표: OpenStreetMap (WGS-84)
+var stops=[
+ {k:"1",name:"798 예술구 · UCCA",zh:"798艺术区",ll:[39.98276,116.48919],t:"10:00–14:00"},
+ {k:"2",name:"왕징 SOHO",zh:"望京SOHO",ll:[39.99560,116.47482],t:"14:15–15:15"},
+ {k:"3",name:"빙쓰다이 (국가속도스케이팅경기장)",zh:"国家速滑馆",ll:[40.01603,116.37138],t:"15:55–16:35"},
+ {k:"4",name:"디지털 베이징",zh:"数字北京大厦",ll:[39.99400,116.38184],t:"16:45"},
+ {k:"합류",name:"만리장성팀 합류 · 奥林匹克公园站",zh:"地铁8·15号线",ll:[40.00039,116.38676],t:"17:00",meet:true},
+ {k:"5",name:"수이리팡 (국가수영센터)",zh:"水立方",ll:[39.99158,116.38417],t:"17:15–"},
+ {k:"6",name:"냐오차오 (국가체육장)",zh:"鸟巢",ll:[39.99140,116.39029],t:"–18:30"}
+];
+
+var amapTiles=L.tileLayer('https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}',{subdomains:'1234',maxZoom:18,attribution:'© 高德地图'});
+var osmTiles=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'});
+var useGcj=true;
+var map=L.map('map',{layers:[amapTiles],scrollWheelZoom:false});
+var group=L.layerGroup().addTo(map);
+
+function draw(){
+  group.clearLayers();
+  var pts=stops.map(function(s){return useGcj?gcj(s.ll[0],s.ll[1]):s.ll});
+  L.polyline(pts,{color:'#c0392b',weight:3,opacity:.7,dashArray:'6 8'}).addTo(group);
+  stops.forEach(function(s,i){
+    var icon=L.divIcon({className:'',html:'<div class="num'+(s.meet?' meet':'')+'">'+s.k+'</div>',iconSize:[s.meet?34:28,s.meet?34:28],iconAnchor:[s.meet?17:14,s.meet?17:14]});
+    var g=gcj(s.ll[0],s.ll[1]);
+    var nav='https://uri.amap.com/marker?position='+g[1].toFixed(6)+','+g[0].toFixed(6)+'&name='+encodeURIComponent(s.zh);
+    L.marker(pts[i],{icon:icon,zIndexOffset:s.meet?1000:0}).addTo(group)
+     .bindPopup('<b>'+s.name+'</b><br>'+s.zh+' · '+s.t+'<br><a href="'+nav+'" target="_blank" rel="noopener">고덕지도에서 열기 ↗</a>'+(s.meet?'':' · <a href="#s'+s.k+'">설명 ↓</a>'));
+  });
+  return pts;
+}
+var pts=draw();
+map.fitBounds(L.latLngBounds(pts),{padding:[24,24]});
+L.control.layers({'고덕지도 (중국에서 빠름)':amapTiles,'OpenStreetMap':osmTiles},null,{collapsed:true}).addTo(map);
+map.on('baselayerchange',function(e){useGcj=(e.layer===amapTiles);draw();});
+map.on('click',function(){map.scrollWheelZoom.enable();});
+</script>
+</body>
+</html>
