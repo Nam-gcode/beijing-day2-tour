@@ -90,6 +90,11 @@ details.fold summary{cursor:pointer;font-weight:700;font-size:1.05rem;padding:.6
 details.fold summary::-webkit-details-marker{display:none}
 details.fold summary::before{content:"▸ ";color:var(--mute)}
 details.fold[open] summary::before{content:"▾ "}
+.arch-pick{background:var(--chip);border-radius:10px;padding:10px 12px;margin:10px 0 4px}
+.arch-pick .sub{margin-top:2px;color:var(--ink)}
+.award{font-size:.72rem;font-weight:700;color:#fff;background:var(--accent);border-radius:4px;padding:1px 5px;margin-left:4px;vertical-align:1px}
+.award.no{background:var(--mute)}
+a.ph{font-size:.78rem;color:var(--accent);text-decoration:none;white-space:nowrap;margin-left:6px}
 footer{margin-top:40px;font-size:.8rem;color:var(--mute)}
 </style>
 </head>
@@ -112,7 +117,7 @@ footer{margin-top:40px;font-size:.8rem;color:var(--mute)}
 <ul class="tl">
   <li><span class="t">09:30</span><div><b>숙소 출발</b> → 798 · <b>택시 2대, 25–35분</b> <span class="mv">약 9km, 차당 ¥30–40. 기사에게 "798艺术区 酒仙桥路 3号门"이라고 보여주세요. 지하철은 환승이 두 번이라(→15호선→14호선 望京南) 50분 넘게 걸려서 택시를 권합니다.</span></div></li>
   <li><span class="t">10:00</span><div><b>① 798 예술구</b> · UCCA, 톱날지붕 공장동, 751 D·PARK <span class="mv">갤러리는 대부분 10:00 오픈</span></div></li>
-  <li><span class="t">12:00</span><div><b>점심 · 798 안</b> <span class="mv">아래 ① 밥집 목록 참고</span></div></li>
+  <li><span class="t">12:00</span><div><b>점심 · 798 안</b> <span class="mv">아래 ① 밥집 목록 참고 · 점심 전후로 <b>798CUBE·木木美术馆 입구</b>를 걸어서 들르세요</span></div></li>
   <li><span class="t">13:15</span><div><b>카페 · 798 안</b>, 또는 왕징으로 넘어가서 SOHO 뷰 카페</div></li>
   <li class="move"><span class="t">14:00</span><div class="mv">798 → 왕징 SOHO · <b>택시 약 10분</b>(약 3km, 차당 ¥15 안팎) / 도보 30분</div></li>
   <li><span class="t">14:15</span><div><b>② 왕징 SOHO</b> · 세 개의 타워 사이 공원 한 바퀴, 맞은편 麒麟社에서 전경</div></li>
@@ -122,7 +127,7 @@ footer{margin-top:40px;font-size:.8rem;color:var(--mute)}
   <li><span class="t">16:45</span><div><b>④ 디지털 베이징</b> · 회로기판 입면, 해 진 뒤 조명 <span class="mv">합류 지점까지 도보 10분</span></div></li>
   <li class="meet"><span class="t">17:00</span><div><b>만리장성팀 합류 · 地铁 奥林匹克公园站</b>(8·15호선) <span class="mv">만리장성팀이 차로 오면 北辰西路 쪽에서 내리면 가깝습니다. 정확한 출구는 당일 위챗으로 공유하세요.</span></div></li>
   <li><span class="t">17:15</span><div><b>⑤ 수이리팡 → ⑥ 냐오차오</b> · 중축선을 따라 남쪽으로 걸으며 야경 <span class="mv">합류 지점에서 수이리팡까지 도보 15분, 두 건물 사이 도보 7분</span></div></li>
-  <li><span class="t">18:45</span><div><b>저녁 · 14명</b> <span class="mv">아래 ⑤⑥ 밥집 목록 참고 · <b>단체석 예약 필수</b></span></div></li>
+  <li><span class="t">18:45</span><div><b>저녁 · 14명</b> <span class="mv">가는 길에 선큰가든 <b>瓦院</b>(10–15분) · 아래 ⑤⑥ 밥집 목록 참고 · <b>단체석 예약 필수</b></span></div></li>
   <li class="move"><span class="t">20:30</span><div class="mv">저녁 → 숙소 · <b>택시 약 10분</b>(약 4km, 차당 ¥15 안팎). 14명이면 택시 4대가 필요합니다.</div></li>
 </ul>
 
@@ -144,6 +149,16 @@ footer{margin-top:40px;font-size:.8rem;color:var(--mute)}
 <li>UCCA: 기존 공장동 안에 새 로비와 출입부를 어떻게 끼워 넣었는지</li>
 <li>751 D·PARK: 가스탱크와 배관을 무대·전시 공간으로 바꾼 산업유산 재생</li>
 </ul>
+<div class="arch-pick">
+<p class="sub">수상작·디테일 좋은 건축 (798 안 · 걸어서 들르기)</p>
+<ul class="places">
+<li><span class="n">798CUBE 미술관</span><span class="award">수상</span><span class="zh">798CUBE美术馆 · 朱锫 Studio Zhu-Pei · 2020</span><a class="amap" href="https://uri.amap.com/search?keyword=798CUBE%E7%BE%8E%E6%9C%AF%E9%A6%86&city=110000">고덕지도 ↗</a><a class="ph" href="https://www.archdaily.com/988430/cube-art-museum-at-798-studio-zhu-pei" target="_blank" rel="noopener">사진 보기 ↗</a><span class="why">옛 공장동을 최대한 남기고 그 안에 기둥 없는 큰 스팬 콘크리트 전시실을 넣었습니다. 세 면이 공장에 둘러싸인 마당이 닫힌 중정이 됩니다. 佩斯(Pace)·民生 미술관 바로 옆. <b>2022/23 ECIDA 중국실내설계대상 '올해의 문화예술 프로젝트'</b>(설계사무소 공식 수상 목록). 설계자 朱锫는 ④ 디지털 베이징을 설계한 사람입니다.</span></li>
+<li><span class="n">木木美术馆(M WOODS) 입구 리노베이션</span><span class="award no">디테일</span><span class="zh">直向建筑 Vector Architects(董功) · 2016</span><a class="amap" href="https://uri.amap.com/search?keyword=%E6%9C%A8%E6%9C%A8%E7%BE%8E%E6%9C%AF%E9%A6%86%20798&city=110000">고덕지도 ↗</a><a class="ph" href="https://www.archdaily.com/794255/m-woods-entrance-revitalization-vector-architects" target="_blank" rel="noopener">사진 보기 ↗</a><span class="why">옛 공장 외관을 반투명 경량 외피로 한 겹 감싸 새것과 옛것이 겹쳐 보이게 했습니다. 40일 만에 지은 작은 작업이지만 디테일이 좋습니다. 수상 기록은 확인하지 못했습니다.</span></li>
+<li><span class="n">798·751 기차 블록</span><span class="award no">디테일</span><span class="zh">不也设计工作室 · 2025 · 751 D·PARK 안</span><a class="ph" href="https://www.archdaily.cn/cn/1042984/798-star-751huo-che-jie-qu-gai-zao-bu-ye-she-ji-gong-zuo-shi" target="_blank" rel="noopener">사진 보기 ↗</a><span class="why">저탄장과 철도 종점을 지하주차장으로 바꾸고, 그 지붕을 들어 올린 작은 광장으로 만들었습니다. 751 쪽으로 가면 자연히 지나갑니다.</span></li>
+<li><span class="n">爱马思 아트센터 · 长征空间</span><span class="award no">참고</span><span class="zh">建筑营 ARCHSTUDIO 2019 · Studio HVN 2020</span><a class="ph" href="https://www.archiposition.com/items/20191024023253" target="_blank" rel="noopener">爱马思 ↗</a><a class="ph" href="https://www.archdaily.com/951618/renovation-of-beijing-long-march-space-studio-hvn" target="_blank" rel="noopener">长征空间 ↗</a><span class="why">공장 위층·길 쪽 증축(爱马思)과 2002년 갤러리 리노베이션(长征空间). 시간이 남으면 들르세요.</span></li>
+</ul>
+<p class="src" style="margin:6px 0 0">이 건물들은 자유 라이선스 사진이 없어 여기에 싣지 않았습니다. <b>사진 보기 ↗</b>를 누르면 ArchDaily 등에서 설계사 사진을 볼 수 있습니다. 참고로 798 단지 전체로는 Sasaki의 798 비전 플랜이 2026년 미국계획협회(APA) 국제 계획상을 받았습니다(건물이 아니라 도시계획 상).</p>
+</div>
 <p class="sub food">밥집 (점심)</p>
 <ul class="places">
 <li><span class="n">便宜坊 798점</span><span class="rec">단체 추천</span><span class="zh">Pianyifang · 1인 약 ¥120</span><a class="amap" href="https://uri.amap.com/search?keyword=%E4%BE%BF%E5%AE%9C%E5%9D%8A%20798&city=110000">고덕지도 ↗</a><a class="dp" href="https://www.dianping.com/search/keyword/2/0_%E4%BE%BF%E5%AE%9C%E5%9D%8A%20798" target="_blank" rel="noopener">가게 사진 ↗</a><span class="why">화덕(焖炉) 베이징덕 노포의 798 지점. 원탁이 있어 7명이 앉기 편합니다.</span><div class="mini"><figure><img src="img/duck_slice.jpg" alt="예시 · 베이징덕 한 상" loading="lazy"><figcaption>예시 · 베이징덕 한 상</figcaption></figure><figure><img src="img/duck_1.jpg" alt="예시 · 오리 카빙" loading="lazy"><figcaption>예시 · 오리 카빙</figcaption></figure><figure><img src="img/duck_2.jpg" alt="예시 · 오리 쌈" loading="lazy"><figcaption>예시 · 오리 쌈</figcaption></figure><figure><img src="img/duck_0.jpg" alt="예시 · 오리 껍질" loading="lazy"><figcaption>예시 · 오리 껍질</figcaption></figure></div></li>
@@ -219,6 +234,16 @@ footer{margin-top:40px;font-size:.8rem;color:var(--mute)}
 <li>개폐 지붕 계획을 취소하고 남은 큰 개구부. 원안과 실시안을 비교해 보세요.</li>
 <li>안쪽 붉은 콘크리트 볼(스탠드)과 바깥 강재 쉘 사이 틈이 만드는 동선 공간</li>
 </ul>
+<div class="arch-pick">
+<p class="sub">수상작 · 올림픽 중심구 선큰가든 2호원 '瓦院' (수이리팡·냐오차오 사이)</p>
+<p class="arch" style="margin:0 0 4px">清华大学建筑设计研究院(THAD) · 2008 <span class="award">ARCASIA 금상</span> <a class="amap" href="https://uri.amap.com/search?keyword=%E5%A5%A5%E6%9E%97%E5%8C%B9%E5%85%8B%E5%85%AC%E5%9B%AD%E4%B8%8B%E6%B2%89%E8%8A%B1%E5%9B%AD&city=110000">고덕지도 ↗</a><a class="ph" href="https://www.archdaily.com/zh/805876/wa-yuan-ao-lin-pi-ke-zhong-xin-qu-xia-chen-hua-yuan-2-number-yuan-qing-hua-da-xue-jian-zhu-she-ji-yan-jiu-yuan" target="_blank" rel="noopener">瓦院 사진 보기 ↗</a></p>
+<div class="photos"><figure><img src="img/sunken_1.jpg" alt="선큰가든 古木花厅 마당" loading="lazy"><figcaption>선큰가든의 다른 마당 · 古木花厅</figcaption></figure><figure><img src="img/sunken_0.jpg" alt="선큰가든 御道宫门" loading="lazy"><figcaption>선큰가든 1호원 · 御道宫门</figcaption></figure><figure><img src="img/sunken_2.jpg" alt="선큰가든 礼乐重门 북 벽" loading="lazy"><figcaption>선큰가든 · 礼乐重门 북(鼓) 벽</figcaption></figure></div>
+<ul class="look">
+<li>지하 약 9m에 700m 길이로 이어진 선큰가든의 마당 7개 중 하나. 사합원을 원형으로 삼고 <b>기와(瓦)</b>를 주재료로 벽·바닥·스크린을 만들었습니다.</li>
+<li>新奥购物中心과 같은 지하 축 위라, 냐오차오 야경을 보고 저녁 먹으러 내려가는 길에 <b>10–15분</b>이면 들를 수 있습니다.</li>
+<li>위 사진은 같은 선큰가든의 다른 마당입니다(瓦院 자체의 자유 라이선스 사진은 없음). 금상 수상은 보도 기준이며 수상 연도는 확인하지 못했습니다.</li>
+</ul>
+</div>
 <p class="sub food">밥집 (저녁 · 14명)</p>
 <ul class="places">
 <li><span class="n">小吊梨汤 鸟巢店</span><span class="rec">1순위</span><span class="zh">베이징요리·오리구이 · 1인 약 ¥90</span><a class="amap" href="https://uri.amap.com/search?keyword=%E5%B0%8F%E5%90%8A%E6%A2%A8%E6%B1%A4%20%E9%B8%9F%E5%B7%A2&city=110000">고덕지도 ↗</a><a class="dp" href="https://www.dianping.com/search/keyword/2/0_%E5%B0%8F%E5%90%8A%E6%A2%A8%E6%B1%A4%20%E9%B8%9F%E5%B7%A2" target="_blank" rel="noopener">가게 사진 ↗</a><span class="why">냐오차오에서 약 760m. 이름의 유래인 배 수프(梨汤)와 베이징덕. 트립닷컴 평점 4.8. 14명이면 큰 원탁 2개나 방(包间)을 예약하세요.</span><div class="mini"><figure><img src="img/pear_0.jpg" alt="예시 · 배 수프(梨汤)" loading="lazy"><figcaption>예시 · 배 수프(梨汤)</figcaption></figure><figure><img src="img/duck_pancake.jpg" alt="예시 · 오리 쌈" loading="lazy"><figcaption>예시 · 오리 쌈</figcaption></figure><figure><img src="img/duck_3.jpg" alt="예시 · 통오리 카빙" loading="lazy"><figcaption>예시 · 통오리 카빙</figcaption></figure><figure><img src="img/duck_5.jpg" alt="예시 · 썬 오리" loading="lazy"><figcaption>예시 · 썬 오리</figcaption></figure></div></li>
@@ -268,6 +293,7 @@ footer{margin-top:40px;font-size:.8rem;color:var(--mute)}
 <li><a href="https://thebeijinger.com/node/1440315">Such A is the Best Café in 798 (The Beijinger)</a> · <a href="https://ocula.com/magazine/spotlight/top-art-and-eating-spots-for-beijing-summer-2024/">Ocula 2024</a> · <a href="https://theculturetrip.com/asia/china/beijing/articles/the-10-best-restaurants-in-798-art-district-beijing">Culture Trip</a></li>
 <li><a href="https://www.thepaper.cn/newsDetail_forward_9638985">望京咖啡馆最挑剔攻略 (澎湃)</a> · <a href="https://news.qq.com/rain/a/20250415A04H2W00">望京太好吃了 (腾讯)</a></li>
 <li><a href="https://you.ctrip.com/food/1/78120001.html">庭院家人 鸟巢店 (携程)</a> · <a href="https://zhuanlan.zhihu.com/p/1951599784315064475">北京自由行 2025 (知乎)</a></li>
+<li>건축 · <a href="https://www.gooood.cn/798cube-art-museum-by-studio-zhu-pei.htm">798CUBE (gooood)</a> · <a href="http://www.studiozhupei.com/list/?id=29&siteid=1">朱锫 수상 목록</a> · <a href="https://www.archiposition.com/items/20180525102931">木木美术馆 입구 (有方)</a> · <a href="https://www.archdaily.com/1113953/sasakis-vision-plan-for-beijings-798-art-district-wins-apa-international-award-for-excellence-honoring-years-of-impact">Sasaki 798 APA 수상</a> · <a href="https://www.sohu.com/a/127372706_585110">亚建协金奖 下沉花园2#院 (搜狐)</a> · <a href="https://m.fx361.com/news/2012/1106/21429984.html">下沉院落评析</a></li>
 <li>지도 좌표: OpenStreetMap 기여자 · 배경 지도: 高德地图 / OpenStreetMap</li>
 </ul>
 </details>
@@ -333,6 +359,9 @@ footer{margin-top:40px;font-size:.8rem;color:var(--mute)}
 <li>lion_0.jpg · <a href="https://commons.wikimedia.org/wiki/File:Lions_head_meatballs_in_brown_sauce.jpg">Lions head meatballs in brown sauce.jpg</a> · Jpatokal · CC BY-SA 4.0</li>
 <li>duck_6.jpg · <a href="https://commons.wikimedia.org/wiki/File:Dim_Tu_Tac_half-portion_Peking_duck.jpg">Dim Tu Tac half-portion Peking duck.jpg</a> · Josh Lim (Sky Harbor) · CC BY-SA 4.0</li>
 <li>pangu_0.jpg · <a href="https://commons.wikimedia.org/wiki/File:20200109_Pangu_Plaza-1.jpg">20200109 Pangu Plaza-1.jpg</a> · Balon Greyjoy · CC0</li>
+<li>sunken_0.jpg · <a href="https://commons.wikimedia.org/wiki/File:%E5%A5%A5%E6%9E%97%E5%8C%B9%E5%85%8B%E5%85%AC%E5%9B%AD%E4%B8%8B%E6%B2%89%E8%8A%B1%E5%9B%AD%E2%80%94%E2%80%94%E5%BE%A1%E9%81%93%E5%AE%AB%E9%97%A8.JPG">奥林匹克公园下沉花园——御道宫门.JPG</a> · Hat600 · CC BY-SA 3.0</li>
+<li>sunken_1.jpg · <a href="https://commons.wikimedia.org/wiki/File:%E5%A5%A5%E6%9E%97%E5%8C%B9%E5%85%8B%E5%85%AC%E5%9B%AD%E4%B8%8B%E6%B2%89%E8%8A%B1%E5%9B%AD%E5%8F%A4%E6%9C%A8%E8%8A%B1%E5%8E%85_20110510.jpg">奥林匹克公园下沉花园古木花厅 20110510.jpg</a> · 颐园新居 · CC BY-SA 3.0</li>
+<li>sunken_2.jpg · <a href="https://commons.wikimedia.org/wiki/File:%E5%A5%A5%E6%9E%97%E5%8C%B9%E5%85%8B%E5%85%AC%E5%9B%AD%E4%B8%8B%E6%B2%89%E8%8A%B1%E5%9B%AD%E7%A4%BC%E4%B9%90%E9%87%8D%E9%97%A8%E9%BC%93%E5%A2%99_20130702.JPG">奥林匹克公园下沉花园礼乐重门鼓墙 20130702.JPG</a> · 颐园新居 · CC BY-SA 3.0</li>
 </ul>
 </details>
 
